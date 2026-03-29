@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import EnquiryButton from "./EnquiryButton";
 
 const highlights = [
   "Payment Plan - 20:80",
@@ -48,7 +49,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Content Container */}
-      <div className="absolute top-1/2 left-0 w-full z-[99] -translate-y-[50%]">
+      <div className="absolute top-1/2 left-0 w-full -translate-y-[50%]">
         <div className="max-w-[1320px] mx-auto px-3">
           <div className="text-white max-w-[55%]">
             {/* Subtitle */}
@@ -97,19 +98,14 @@ export default function HeroSection() {
 
             {/* Download Brochure Button */}
             <div className="pt-[10px]">
-              <a
-                href="#"
-                className="inline-block bg-[#b18e4e] text-white text-[14px] font-semibold rounded-[25px] px-[25px] py-[13px] hover:bg-[#9a7a3e] transition-all duration-300"
-              >
-                Download Brochure
-              </a>
+              <EnquiryButton className="inline-block bg-[#b18e4e] text-white text-[14px] font-semibold rounded-[25px] px-[25px] py-[13px] hover:bg-[#9a7a3e] transition-all duration-300 cursor-pointer" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Enquiry Form */}
-      <div className="absolute top-1/2 -translate-y-[50%] z-[99] hidden lg:block" style={{ right: "calc((100% - 1320px) / 2 + 12px)" }}>
+      <div className="absolute top-1/2 -translate-y-[50%] hidden lg:block" style={{ right: "calc((100% - 1320px) / 2 + 12px)" }}>
         <div className="w-[414px] bg-white/20 backdrop-blur-sm rounded-[10px] p-[30px]">
           {/* Form Title */}
           <h3 className="text-center text-[24px] font-bold text-[#ffe2ac] border border-white/50 p-[5px] mb-5">

@@ -26,7 +26,7 @@ export default function FloorPlansSection() {
             <div key={index} className="mb-4">
               <div className="relative border border-[#b18e4e] rounded-[19px] p-[10px] text-center">
                 {/* Label Badge */}
-                <p className="relative z-[99] inline-block bg-[#b18e4e] text-white text-[17px] font-medium rounded-[5px] px-[35px] py-[4px] -mt-[24px] mb-[-15px]">
+                <p className="relative inline-block bg-[#b18e4e] text-white text-[17px] font-medium rounded-[5px] px-[35px] py-[4px] -mt-[24px] mb-[-15px]">
                   {plan.label}
                 </p>
 

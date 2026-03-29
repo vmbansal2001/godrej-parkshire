@@ -18,7 +18,7 @@ export default function OverviewSection() {
               />
 
               {/* Overlapping smaller image */}
-              <div className="absolute bottom-[60px] -left-[25%] z-[99] w-[58%]">
+              <div className="absolute bottom-[60px] -left-[25%] w-[58%]">
                 <Image
                   src="/images/overview-1.webp"
                   alt="Godrej Parkshire amenities"
