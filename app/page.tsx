@@ -6,6 +6,10 @@ import HighlightsSection from "./components/HighlightsSection";
 import PriceSection from "./components/PriceSection";
 import AmenitiesSection from "./components/AmenitiesSection";
 import FloorPlansSection from "./components/FloorPlansSection";
+import GallerySection from "./components/GallerySection";
+import LocationSection from "./components/LocationSection";
+import ContactSection from "./components/ContactSection";
+import SiteFooter from "./components/SiteFooter";
 
 export default function Home() {
   return (
@@ -18,10 +22,10 @@ export default function Home() {
       <PriceSection />
       <AmenitiesSection />
       <FloorPlansSection />
-      {/* Placeholder for remaining sections */}
-      {/* <section className="h-screen bg-white flex items-center justify-center">
-        <p className="text-gray-800 text-2xl">Content Section (placeholder)</p>
-      </section> */}
+      <GallerySection />
+      <LocationSection />
+      <ContactSection />
+      <SiteFooter />
     </>
   );
 }
