@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import EnquiryButton from "./EnquiryButton";
+import { useEnquiryForm } from "@/app/hooks/useEnquiryForm";
 
 const highlights = [
   "Payment Plan - 20:80",
@@ -11,27 +11,22 @@ const highlights = [
   "Limited inventory applicable ( 2 & 3 BHK )",
 ];
 
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return <p className="text-red-400 text-[12px] mt-0.5">{message}</p>;
+}
+
 export default function HeroSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-    consent: true,
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Form submission logic here
-    console.log("Form submitted:", formData);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const {
+    formData,
+    consent,
+    setConsent,
+    errors,
+    status,
+    serverError,
+    handleChange,
+    handleSubmit,
+  } = useEnquiryForm({ source: "Hero - Book A Site Visit" });
 
   return (
     <section id="home" className="relative w-full h-[872px] overflow-hidden">
@@ -112,100 +107,118 @@ export default function HeroSection() {
             Book A Site Visit
           </h3>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            {/* Name */}
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full h-[38px] px-3 py-1.5 text-[14px] text-[#333] bg-white border border-[#ededed] rounded-[6px] outline-none focus:border-[#b18e4e] transition-colors"
-              required
-            />
-
-            {/* Phone with country code */}
-            <div className="flex items-center gap-0 h-[38px] bg-white border border-[#ededed] rounded-[6px] overflow-hidden">
-              <div className="flex items-center gap-1 px-2 border-r border-[#ededed] shrink-0 h-full">
-                <span className="text-[14px]">🇮🇳</span>
-                <span className="text-[14px] text-[#333]">+91</span>
-                <svg
-                  className="w-3 h-3 text-[#333]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+          {status === "success" ? (
+            <div className="text-center py-8">
+              <div className="text-[40px] mb-3">✓</div>
+              <h4 className="text-[20px] font-bold text-white mb-2">Thank You!</h4>
+              <p className="text-white/90 text-[14px]">We&apos;ll get back to you shortly.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              {/* Name */}
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full h-[38px] px-3 py-1.5 text-[14px] text-[#333] bg-white border border-[#ededed] rounded-[6px] outline-none focus:border-[#b18e4e] transition-colors"
+                />
+                <FieldError message={errors.name} />
               </div>
+
+              {/* Phone with country code */}
+              <div>
+                <div className="flex items-center gap-0 h-[38px] bg-white border border-[#ededed] rounded-[6px] overflow-hidden">
+                  <div className="flex items-center gap-1 px-2 border-r border-[#ededed] shrink-0 h-full">
+                    <span className="text-[14px]">🇮🇳</span>
+                    <span className="text-[14px] text-[#333]">+91</span>
+                    <svg
+                      className="w-3 h-3 text-[#333]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Mobile"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="flex-1 h-full px-3 text-[14px] text-[#333] outline-none"
+                  />
+                </div>
+                <FieldError message={errors.phone} />
+              </div>
+
+              {/* Email */}
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full h-[38px] px-3 py-1.5 text-[14px] text-[#333] bg-white border border-[#ededed] rounded-[6px] outline-none focus:border-[#b18e4e] transition-colors"
+                />
+                <FieldError message={errors.email} />
+              </div>
+
+              {/* Message */}
               <input
-                type="tel"
-                name="phone"
-                placeholder="Mobile"
-                value={formData.phone}
+                type="text"
+                name="message"
+                placeholder="Message"
+                value={formData.message}
                 onChange={handleChange}
-                className="flex-1 h-full px-3 text-[14px] text-[#333] outline-none"
-                required
+                className="w-full h-[38px] px-3 py-1.5 text-[14px] text-[#333] bg-white border border-[#ededed] rounded-[6px] outline-none focus:border-[#b18e4e] transition-colors"
               />
-            </div>
 
-            {/* Email */}
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full h-[38px] px-3 py-1.5 text-[14px] text-[#333] bg-white border border-[#ededed] rounded-[6px] outline-none focus:border-[#b18e4e] transition-colors"
-              required
-            />
+              {/* Server Error */}
+              {serverError && (
+                <p className="text-red-400 text-[13px] text-center">{serverError}</p>
+              )}
 
-            {/* Message */}
-            <input
-              type="text"
-              name="message"
-              placeholder="Message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full h-[38px] px-3 py-1.5 text-[14px] text-[#333] bg-white border border-[#ededed] rounded-[6px] outline-none focus:border-[#b18e4e] transition-colors"
-            />
+              {/* Submit Button */}
+              <div className="flex justify-center mt-2">
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-[200px] border-2 border-white text-white text-[15px] font-semibold rounded-[25px] px-[25px] py-[14px] bg-transparent hover:bg-white hover:text-[#333] transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === "submitting" ? "Submitting..." : "Submit"}
+                </button>
+              </div>
 
-            {/* Submit Button */}
-            <div className="flex justify-center mt-2">
-              <button
-                type="submit"
-                className="w-[200px] border-2 border-white text-white text-[15px] font-semibold rounded-[25px] px-[25px] py-[14px] bg-transparent hover:bg-white hover:text-[#333] transition-all duration-300 cursor-pointer"
-              >
-                Submit
-              </button>
-            </div>
-
-            {/* Consent Checkbox */}
-            <div className="flex items-start gap-2 mt-1">
-              <input
-                type="checkbox"
-                name="consent"
-                checked={formData.consent}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    consent: e.target.checked,
-                  }))
-                }
-                className="mt-1 shrink-0 accent-[#b18e4e]"
-              />
-              <span className="text-[11px] text-white/90 leading-tight">
-                I authorize company representatives to Call, SMS, Email or
-                WhatsApp me about its products and offers. This consent overrides
-                any registration for DNC/NDNC.
-              </span>
-            </div>
-          </form>
+              {/* Consent Checkbox */}
+              <div className="flex flex-col gap-1 mt-1">
+                <div className="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    name="consent"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-1 shrink-0 accent-[#b18e4e]"
+                  />
+                  <span className="text-[11px] text-white/90 leading-tight">
+                    I authorize company representatives to Call, SMS, Email or
+                    WhatsApp me about its products and offers. This consent overrides
+                    any registration for DNC/NDNC.
+                  </span>
+                </div>
+                <FieldError message={errors.consent} />
+              </div>
+            </form>
+          )}
         </div>
       </div>
     </section>

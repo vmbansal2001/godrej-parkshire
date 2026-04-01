@@ -1,29 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEnquiryForm } from "@/app/hooks/useEnquiryForm";
 
 const aboutDeveloper = `Godrej Properties brings the Godrej Group philosophy of innovation, sustainability, and excellence to the real estate industry. Each Godrej Properties development combines a 122–year legacy of excellence and trust with a commitment to cutting-edge design and technology. In recent years, Godrej Properties has received over 250 awards and recognitions, including 'The Most Trusted Real Estate Brand' in 2019 from the Brand Trust Report, 'Real Estate Company of the Year' at the 9th Construction Week Awards 2019, 'Equality and Diversity Champion' 2019 at the APREA Property Leaders Awards, 'The Economic Times Best Real Estate Brand 2018' and the 'Builder of the Year' at the CNBC-Awaaz Real Estate Awards 2018.`;
 
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return <p className="text-red-500 text-[12px] mt-0.5">{message}</p>;
+}
+
 export default function ContactSection() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-  const [agreed, setAgreed] = useState(true);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: wire to API / CRM endpoint
-    console.log("Contact form submitted:", form);
-  };
+  const {
+    formData,
+    consent,
+    setConsent,
+    errors,
+    status,
+    serverError,
+    handleChange,
+    handleSubmit,
+  } = useEnquiryForm({ source: "Contact Us Section" });
 
   return (
     <section id="contact-us" className="bg-white">
@@ -55,64 +51,90 @@ export default function ContactSection() {
               Send A Message!
             </h2>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Mobile"
-                value={form.phone}
-                onChange={handleChange}
-                required
-                className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors"
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={form.message}
-                onChange={handleChange}
-                rows={3}
-                className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors resize-none"
-              />
-
-              <button
-                type="submit"
-                className="w-full bg-[#b18e4e] hover:bg-[#9a7a3e] text-white text-[16px] font-semibold rounded-[6px] py-3 transition-colors cursor-pointer"
-              >
-                Submit Now
-              </button>
-
-              <label className="flex items-start gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={agreed}
-                  onChange={() => setAgreed(!agreed)}
-                  className="mt-1 accent-[#b18e4e]"
+            {status === "success" ? (
+              <div className="text-center py-12 border border-[#ddd] rounded-[6px]">
+                <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4 mx-auto">
+                  <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-[22px] font-bold text-[#333] mb-2">Thank You!</h3>
+                <p className="text-[15px] text-[#666]">We&apos;ll get back to you shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors"
+                  />
+                  <FieldError message={errors.name} />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Mobile"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors"
+                  />
+                  <FieldError message={errors.phone} />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors"
+                  />
+                  <FieldError message={errors.email} />
+                </div>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={3}
+                  className="w-full border border-[#ddd] rounded-[6px] px-4 py-3 text-[15px] text-[#333] outline-none focus:border-[#b18e4e] transition-colors resize-none"
                 />
-                <span className="text-[13px] text-[#555] leading-normal">
-                  I authorize company representatives to Call, SMS, Email or
-                  WhatsApp me about its products and offers. This consent
-                  overrides any registration for DNC/NDNC.
-                </span>
-              </label>
-            </form>
+
+                {serverError && (
+                  <p className="text-red-500 text-[13px] text-center">{serverError}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full bg-[#b18e4e] hover:bg-[#9a7a3e] text-white text-[16px] font-semibold rounded-[6px] py-3 transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === "submitting" ? "Submitting..." : "Submit Now"}
+                </button>
+
+                <div className="flex flex-col gap-1">
+                  <label className="flex items-start gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                      className="mt-1 accent-[#b18e4e]"
+                    />
+                    <span className="text-[13px] text-[#555] leading-normal">
+                      I authorize company representatives to Call, SMS, Email or
+                      WhatsApp me about its products and offers. This consent
+                      overrides any registration for DNC/NDNC.
+                    </span>
+                  </label>
+                  <FieldError message={errors.consent} />
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>
