@@ -25,7 +25,7 @@ export default function OverviewSection() {
               />
 
               {/* Overlapping smaller image */}
-              <div className="absolute bottom-[60px] -left-[20%] w-[55%]">
+              <div className="hidden md:block absolute bottom-[60px] -left-[20%] w-[55%]">
                 <Image
                   src="/images/overview-1.webp"
                   alt="Godrej Parkshire amenities"
@@ -48,7 +48,7 @@ export default function OverviewSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl font-bold text-[#222] tracking-tight mb-2">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#222] tracking-tight mb-2">
               Godrej <span className="text-[#b18e4e]">Parkshire</span>
             </h2>
 
@@ -72,11 +72,11 @@ export default function OverviewSection() {
             </p>
 
             {/* Stats Row */}
-            <div className="flex gap-6">
+            <div className="grid grid-cols-3 gap-3 md:gap-6">
               {stats.map((stat, i) => (
-                <div key={i} className="text-center px-5 py-4 bg-white rounded-xl shadow-[0_1px_8px_rgba(0,0,0,0.05)] border border-[#f2f2f2]">
-                  <div className="text-2xl font-bold text-[#b18e4e]">{stat.value}</div>
-                  <div className="text-xs text-[#666] uppercase tracking-wide mt-1">{stat.label}</div>
+                <div key={i} className="text-center px-3 py-3 md:px-5 md:py-4 bg-white rounded-xl shadow-[0_1px_8px_rgba(0,0,0,0.05)] border border-[#f2f2f2]">
+                  <div className="text-xl md:text-2xl font-bold text-[#b18e4e]">{stat.value}</div>
+                  <div className="text-[10px] md:text-xs text-[#666] uppercase tracking-wide mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>

@@ -13,7 +13,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   if (centered) {
     return (
-      <div className="text-center mb-14">
+      <div className="text-center mb-8 md:mb-14">
         <div className="flex items-center justify-center gap-3 mb-4">
           <div className="w-8 h-[2px] bg-[#b18e4e]" />
           <small className="text-xs font-semibold tracking-[3px] uppercase text-[#b18e4e]">
@@ -21,7 +21,7 @@ export default function SectionHeader({
           </small>
           <div className="w-8 h-[2px] bg-[#b18e4e]" />
         </div>
-        <h2 className="text-4xl font-bold text-[#222] tracking-tight">
+        <h2 className="text-2xl md:text-4xl font-bold text-[#222] tracking-tight">
           {heading}
         </h2>
       </div>
@@ -36,7 +36,7 @@ export default function SectionHeader({
           {label}
         </small>
       </div>
-      <h2 className="text-4xl font-bold text-[#222] tracking-tight">
+      <h2 className="text-2xl md:text-4xl font-bold text-[#222] tracking-tight">
         {heading}
       </h2>
     </div>

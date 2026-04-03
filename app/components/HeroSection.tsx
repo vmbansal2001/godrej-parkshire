@@ -26,13 +26,13 @@ export default function HeroSection() {
   } = useEnquiryForm({ source: "Hero - Book A Site Visit" });
 
   return (
-    <section id="home" className="relative w-full h-[100vh] min-h-[800px] max-h-[960px] overflow-hidden">
+    <section id="home" className="relative w-full h-[100vh] min-h-[600px] md:min-h-[800px] max-h-[960px] overflow-hidden">
       {/* Background Image with subtle zoom animation */}
       <Image
-        src="/images/hero-banner.webp"
+        src="/images/hero-banner.jpg"
         alt="Godrej Parkshire"
         fill
-        className="object-cover object-center scale-105 animate-[heroZoom_20s_ease-in-out_infinite_alternate]"
+        className="object-cover object-[center_30%] scale-105 animate-[heroZoom_20s_ease-in-out_infinite_alternate]"
         priority
         quality={90}
       />
@@ -45,30 +45,30 @@ export default function HeroSection() {
 
       {/* Content Container */}
       <div className="absolute top-1/2 left-0 w-full -translate-y-[50%]">
-        <div className="max-w-[1320px] mx-auto px-3">
-          <div className="text-white max-w-[55%]">
+        <div className="max-w-[1320px] mx-auto px-4 md:px-3">
+          <div className="text-white max-w-full lg:max-w-[55%]">
             {/* Subtitle */}
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-[2px] bg-[#b18e4e]" />
-              <small className="text-[13px] font-semibold tracking-[2px] uppercase text-[#d4b87a]">
+              <small className="text-[11px] md:text-[13px] font-semibold tracking-[2px] uppercase text-[#d4b87a]">
                 At Hoskote, East Bangalore
               </small>
             </div>
 
             {/* Main Heading */}
-            <h2 className="text-[48px] font-bold text-white mb-2 uppercase tracking-[1px] leading-tight">
+            <h2 className="text-[28px] md:text-[48px] font-bold text-white mb-2 uppercase tracking-[1px] leading-tight">
               Godrej <span className="text-[#d4b87a]">Parkshire</span>
             </h2>
 
             {/* Tagline */}
-            <p className="text-white/70 text-lg mb-6">Where luxury meets connectivity</p>
+            <p className="text-white/70 text-sm md:text-lg mb-4 md:mb-6">Where luxury meets connectivity</p>
 
             {/* Highlight Items */}
             <div className="flex flex-col gap-2 mb-7">
               {highlights.map((item, index) => (
                 <p
                   key={index}
-                  className="flex items-center gap-3 text-[15px] font-medium text-white"
+                  className="flex items-center gap-2 md:gap-3 text-[13px] md:text-[15px] font-medium text-white"
                 >
                   <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#b18e4e]/30 shrink-0">
                     <Image
@@ -85,24 +85,24 @@ export default function HeroSection() {
             </div>
 
             {/* Badges row */}
-            <div className="flex flex-wrap items-stretch gap-3 mb-6">
+            <div className="flex flex-col md:flex-row md:flex-wrap items-stretch gap-3 mb-12 md:mb-6">
               {/* Apartment Badge */}
               <EnquiryButton
                 label="2 & 3 BHK Apartments"
-                className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 text-[16px] font-semibold text-white hover:bg-white/20 transition-all duration-300 cursor-pointer"
+                className="flex items-center justify-center w-full md:w-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2.5 md:px-6 md:py-3 text-[13px] md:text-[16px] font-semibold text-white hover:bg-white/20 transition-all duration-300 cursor-pointer"
               />
 
               {/* Price Badge */}
               <EnquiryButton
-                className="inline-flex items-center bg-[#b18e4e]/20 backdrop-blur-sm border border-[#b18e4e]/40 rounded-full px-6 py-3 text-[16px] font-semibold text-white hover:bg-[#b18e4e]/30 transition-all duration-300 cursor-pointer"
+                className="flex items-center justify-center w-full md:w-auto bg-[#b18e4e]/20 backdrop-blur-sm border border-[#b18e4e]/40 rounded-full px-4 py-2.5 md:px-6 md:py-3 text-[13px] md:text-[16px] font-semibold text-white hover:bg-[#b18e4e]/30 transition-all duration-300 cursor-pointer"
               >
-                Starting ₹ <span className="text-[#ffd588] text-[20px] font-bold ml-1">1.20</span> <span className="ml-0.5">Cr*</span>
+                Starting ₹ <span className="text-[#ffd588] text-[16px] md:text-[20px] font-bold ml-1">1.20</span> <span className="ml-0.5">Cr*</span>
               </EnquiryButton>
             </div>
 
             {/* Download Brochure Button */}
             <div>
-              <EnquiryButton className="inline-block bg-[#b18e4e] text-white text-[15px] font-semibold rounded-full px-8 py-3.5 hover:bg-[#9a7a3e] hover:shadow-[0_4px_20px_rgba(177,142,78,0.4)] transition-all duration-300 cursor-pointer" />
+              <EnquiryButton className="block w-full md:inline-block md:w-auto bg-[#b18e4e] text-white text-[13px] md:text-[15px] font-semibold rounded-full px-6 md:px-8 py-3 md:py-3.5 hover:bg-[#9a7a3e] hover:shadow-[0_4px_20px_rgba(177,142,78,0.4)] transition-all duration-300 cursor-pointer text-center" />
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
         <span className="text-white/50 text-xs tracking-widest uppercase">Scroll</span>
         <svg className="w-5 h-5 text-[#b18e4e]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
       </div>

@@ -16,7 +16,7 @@ export default function PriceSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
           {PRICE_CARDS.map((card, index) => (
             <div key={index} className="w-full max-w-[480px]">
-              <div className="bg-white rounded-2xl pt-8 pb-7 px-8 shadow-[0_2px_16px_rgba(0,0,0,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+              <div className="bg-white rounded-2xl pt-6 pb-5 px-5 md:pt-8 md:pb-7 md:px-8 shadow-[0_2px_16px_rgba(0,0,0,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                 {/* Typology Badge */}
                 <div className="flex justify-center">
                   <span className="bg-[#b18e4e] text-white rounded-full px-5 py-1.5 text-sm font-semibold tracking-wide">
@@ -28,10 +28,10 @@ export default function PriceSection() {
                 <div className="text-center mt-6">
                   <div>
                     <span className="text-lg text-[#666]">₹ </span>
-                    <span className="text-5xl font-bold text-[#b18e4e]">
+                    <span className="text-3xl md:text-5xl font-bold text-[#b18e4e]">
                       {card.price}
                     </span>
-                    <span className="text-2xl font-semibold text-[#333]">
+                    <span className="text-xl md:text-2xl font-semibold text-[#333]">
                       {" "}Cr*
                     </span>
                   </div>

@@ -93,7 +93,7 @@ export default function Header() {
             {/* Phone Button */}
             <a
               href="tel:+919538111105"
-              className="ml-4 bg-[#b18e4e] text-white text-[15px] font-semibold rounded-[25px] px-[22px] py-[14px] transition-all duration-300 hover:bg-[#9a7a3e] whitespace-nowrap"
+              className="ml-4 bg-[#b18e4e] text-white text-[15px] font-semibold rounded-[25px] px-[22px] py-[14px] transition-all duration-300 hover:bg-[#9a7a3e] whitespace-nowrap hidden lg:inline-block"
             >
               +91 9538111105
             </a>

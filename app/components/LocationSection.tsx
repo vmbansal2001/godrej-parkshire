@@ -36,7 +36,7 @@ export default function LocationSection() {
           </div>
 
           {/* Map Column */}
-          <div className="w-full lg:w-1/2 relative sticky top-24">
+          <div className="w-full lg:w-1/2 relative lg:sticky lg:top-24">
             <div className="relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.1)]">
               <Image
                 src="/images/location-map.webp"
@@ -47,7 +47,7 @@ export default function LocationSection() {
               />
               {/* Overlay with CTA */}
               <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center">
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-8 py-6 text-center shadow-lg">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-4 md:px-8 md:py-6 text-center shadow-lg">
                   <svg className="w-10 h-10 text-[#b18e4e] mx-auto mb-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" /></svg>
                   <h4 className="text-lg font-bold text-[#222] mb-1">Hoskote, East Bangalore</h4>
                   <p className="text-sm text-[#666] mb-4">Near NH 75 &amp; Old Madras Road</p>

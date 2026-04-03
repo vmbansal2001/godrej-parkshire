@@ -31,7 +31,7 @@ export default function GallerySection() {
             <small className="text-[12px] font-semibold tracking-[3px] uppercase text-[#b18e4e] block mb-[5px]">
               Luxury Experience
             </small>
-            <h2 className="text-[33.6px] font-bold text-[#333] tracking-[-1px]">
+            <h2 className="text-2xl md:text-[33.6px] font-bold text-[#333] tracking-[-1px]">
               Gallery
             </h2>
           </div>

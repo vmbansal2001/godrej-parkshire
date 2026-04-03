@@ -30,7 +30,7 @@ export default function ContactSection() {
             </small>
             <div className="w-8 h-[2px] bg-[#b18e4e]" />
           </div>
-          <h2 className="text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
             Get in <span className="text-[#b18e4e]">Touch</span>
           </h2>
         </div>
@@ -47,25 +47,25 @@ export default function ContactSection() {
             </p>
 
             {/* Trust badges */}
-            <div className="flex gap-4">
-              <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-center">
-                <div className="text-2xl font-bold text-[#b18e4e]">122+</div>
-                <div className="text-xs text-white/50 uppercase tracking-wide mt-1">Years Legacy</div>
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              <div className="bg-white/5 border border-white/10 rounded-xl px-3 py-3 md:px-5 md:py-4 text-center">
+                <div className="text-lg md:text-2xl font-bold text-[#b18e4e]">122+</div>
+                <div className="text-[10px] md:text-xs text-white/50 uppercase tracking-wide mt-1">Years Legacy</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-center">
-                <div className="text-2xl font-bold text-[#b18e4e]">250+</div>
-                <div className="text-xs text-white/50 uppercase tracking-wide mt-1">Awards</div>
+              <div className="bg-white/5 border border-white/10 rounded-xl px-3 py-3 md:px-5 md:py-4 text-center">
+                <div className="text-lg md:text-2xl font-bold text-[#b18e4e]">250+</div>
+                <div className="text-[10px] md:text-xs text-white/50 uppercase tracking-wide mt-1">Awards</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-center">
-                <div className="text-2xl font-bold text-[#b18e4e]">#1</div>
-                <div className="text-xs text-white/50 uppercase tracking-wide mt-1">Trusted Brand</div>
+              <div className="bg-white/5 border border-white/10 rounded-xl px-3 py-3 md:px-5 md:py-4 text-center">
+                <div className="text-lg md:text-2xl font-bold text-[#b18e4e]">#1</div>
+                <div className="text-[10px] md:text-xs text-white/50 uppercase tracking-wide mt-1">Trusted Brand</div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="w-full xl:w-1/2">
-            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
+            <div className="bg-white rounded-2xl p-5 md:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
               <h3 className="text-xl font-bold text-[#222] mb-6">
                 Send A Message
               </h3>
