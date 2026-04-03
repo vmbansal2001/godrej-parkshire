@@ -26,10 +26,10 @@ export default function HeroSection() {
   } = useEnquiryForm({ source: "Hero - Book A Site Visit" });
 
   return (
-    <section id="home" className="relative w-full h-[100vh] min-h-[600px] md:min-h-[800px] max-h-[960px] overflow-hidden">
+    <section id="home" className="relative w-full h-screen min-h-[600px] md:min-h-[800px] max-h-[960px] overflow-hidden">
       {/* Background Image with subtle zoom animation */}
       <Image
-        src="/images/hero-banner.jpg"
+        src="/images/hero-banner.webp"
         alt="Godrej Parkshire"
         fill
         className="object-cover object-[center_30%] scale-105 animate-[heroZoom_20s_ease-in-out_infinite_alternate]"
@@ -38,10 +38,10 @@ export default function HeroSection() {
       />
 
       {/* Multi-layer overlay for cinematic depth */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-black/55" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20" />
       {/* Gold vignette accent */}
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#b18e4e]/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-linear-to-r from-transparent via-[#b18e4e]/50 to-transparent" />
 
       {/* Content Container */}
       <div className="absolute top-1/2 left-0 w-full -translate-y-[50%]">
@@ -101,8 +101,8 @@ export default function HeroSection() {
             </div>
 
             {/* Download Brochure Button */}
-            <div>
-              <EnquiryButton className="block w-full md:inline-block md:w-auto bg-[#b18e4e] text-white text-[13px] md:text-[15px] font-semibold rounded-full px-6 md:px-8 py-3 md:py-3.5 hover:bg-[#9a7a3e] hover:shadow-[0_4px_20px_rgba(177,142,78,0.4)] transition-all duration-300 cursor-pointer text-center" />
+            <div className="mt-10">
+              <EnquiryButton className="block w-full md:inline-block md:w-auto bg-[#b18e4e] text-white text-[13px] md:text-[15px] font-semibold rounded-full px-6 md:px-[148px] py-3 md:py-3.5 hover:bg-[#9a7a3e] hover:shadow-[0_4px_20px_rgba(177,142,78,0.4)] transition-all duration-300 cursor-pointer text-center" />
             </div>
           </div>
         </div>

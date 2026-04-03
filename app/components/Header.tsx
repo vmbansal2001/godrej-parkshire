@@ -50,7 +50,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 ease-in-out py-[10px] ${
+      className={`fixed top-0 left-0 w-full z-999 transition-all duration-300 ease-in-out py-[10px] ${
         isScrolled
           ? "bg-white border-b border-[#d9e1e6]"
           : "bg-transparent"
@@ -62,11 +62,12 @@ export default function Header() {
           <div className="shrink-0 mr-auto">
             <a href="#" onClick={(e) => handleNavClick(e, "#")}>
               <Image
-                src="/images/project-logo-light.png"
+                src="/images/project-logo-light.webp"
                 alt="Godrej Properties"
-                width={180}
-                height={43}
-                className={`h-[43px] w-auto ${isScrolled ? "brightness-0" : ""}`}
+                width={270}
+                height={65}
+                className={isScrolled ? "brightness-0" : "invert"}
+                style={{ width: "auto", height: "43px" }}
                 priority
               />
             </a>
@@ -101,7 +102,7 @@ export default function Header() {
             {/* PT Logo (circular icon) */}
             <div className="ml-4 shrink-0">
               <Image
-                src="/images/pt-logo.png"
+                src="/images/pt-logo.webp"
                 alt=""
                 width={42}
                 height={41}
@@ -137,7 +138,7 @@ export default function Header() {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`xl:hidden fixed top-0 right-0 h-full w-[280px] bg-white shadow-2xl transform transition-transform duration-300 z-[1001] ${
+        className={`xl:hidden fixed top-0 right-0 h-full w-[280px] bg-white shadow-2xl transform transition-transform duration-300 z-1001 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -176,7 +177,7 @@ export default function Header() {
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div
-          className="xl:hidden fixed inset-0 bg-black/50 z-[1000]"
+          className="xl:hidden fixed inset-0 bg-black/50 z-1000"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}

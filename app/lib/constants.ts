@@ -24,7 +24,7 @@ export const AMENITIES = [
   { name: "Gymnasium", image: "/images/amenities/2.webp" },
   { name: "Multipurpose Hall", image: "/images/amenities/3.webp" },
   { name: "Kids Play Area", image: "/images/amenities/4.webp" },
-  { name: "Yoga", image: "/images/amenities/11.jpg" },
+  { name: "Yoga", image: "/images/amenities/11.webp" },
   { name: "Badminton Court", image: "/images/amenities/6.webp" },
   { name: "Indoor Games", image: "/images/amenities/7.webp" },
   { name: "Tennis Court", image: "/images/amenities/8.webp" },

@@ -38,7 +38,7 @@ export default function EnquiryModal({ open, onClose }: EnquiryModalProps) {
         {/* Left Panel - Property Image */}
         <div className="hidden lg:block shrink-0 bg-[#0c1b2e]">
           <Image
-            src="/images/Godrej-Hoskote-popup.jpg"
+            src="/images/Godrej-Hoskote-popup.webp"
             alt="Godrej Parkshire - 2 & 3 BHK Apartments starting at ₹1.17 Cr"
             width={520}
             height={520}

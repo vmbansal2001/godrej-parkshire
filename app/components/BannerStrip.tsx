@@ -5,7 +5,7 @@ export default function BannerStrip() {
     <div className="w-full">
       {/* Desktop Banner */}
       <Image
-        src="/images/banner-strip-desktop.jpg"
+        src="/images/banner-strip-desktop.webp"
         alt="Godrej Parkshire - Find Your Perfect Stay"
         width={1920}
         height={400}
@@ -14,7 +14,7 @@ export default function BannerStrip() {
       />
       {/* Mobile Banner */}
       <Image
-        src="/images/banner-strip-mobile.jpg"
+        src="/images/banner-strip-mobile.webp"
         alt="Godrej Parkshire - Find Your Perfect Stay"
         width={500}
         height={700}
