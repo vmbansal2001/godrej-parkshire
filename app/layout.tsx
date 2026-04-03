@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Godrej Parkshire | Hoskote, East Bangalore | 2 & 3 BHK Apartments",
   description:
-    "Godrej Parkshire - Premium 2 & 3 BHK apartments at Hoskote, East Bangalore by Godrej Properties. Starting at ₹1.17 Cr.",
+    "Godrej Parkshire - Premium 2 & 3 BHK apartments at Hoskote, East Bangalore by Godrej Properties. Starting at ₹1.20 Cr.",
 };
 
 export default function RootLayout({

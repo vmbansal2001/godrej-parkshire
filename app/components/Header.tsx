@@ -92,10 +92,10 @@ export default function Header() {
 
             {/* Phone Button */}
             <a
-              href="tel:+917618792300"
+              href="tel:+919538111105"
               className="ml-4 bg-[#b18e4e] text-white text-[15px] font-semibold rounded-[25px] px-[22px] py-[14px] transition-all duration-300 hover:bg-[#9a7a3e] whitespace-nowrap"
             >
-              +91 7618792300
+              +91 9538111105
             </a>
 
             {/* PT Logo (circular icon) */}
@@ -163,10 +163,10 @@ export default function Header() {
             ))}
             <li className="mt-4">
               <a
-                href="tel:+917618792300"
+                href="tel:+919538111105"
                 className="block text-center bg-[#b18e4e] text-white text-[15px] font-semibold rounded-[25px] px-[22px] py-[14px] hover:bg-[#9a7a3e] transition-colors"
               >
-                +91 7618792300
+                +91 9538111105
               </a>
             </li>
           </ul>

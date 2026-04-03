@@ -1,59 +1,54 @@
 import Image from "next/image";
-
-const features = [
-  "High-rise residential towers with modern architecture and efficient planning",
-  "Approx. 1,400 apartments across a thoughtfully planned 14-acre township",
-  "Designed for natural light, ventilation and sustainable living",
-  "Prime East Bangalore location with strong connectivity to IT hubs",
-  "RERA registration in progress / will be registered soon",
-  "World class Amenities",
-];
+import SectionHeader from "./ui/SectionHeader";
+import { HIGHLIGHTS } from "@/app/lib/constants";
 
 export default function HighlightsSection() {
   return (
-    <div id="highlights" className="bg-white">
-      <div className="max-w-[1320px] mx-auto px-3 py-[70px]">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-0">
+    <section id="highlights" className="bg-white">
+      <div className="max-w-[1280px] mx-auto px-6 py-24">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Image Column */}
-          <div className="w-full lg:w-6/12">
+          <div className="w-full lg:w-1/2 relative">
+            {/* Decorative accent behind image */}
+            <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-[#b18e4e]/30" />
             <Image
               src="/images/highlight-img.webp"
               alt="Godrej Parkshire Highlights"
               width={636}
               height={521}
-              className="w-full max-w-[636px] h-auto"
+              className="relative w-full h-auto rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)]"
             />
           </div>
 
           {/* Text Column */}
-          <div className="w-full lg:w-5/12">
-            {/* Section Label */}
-            <small className="text-[12px] font-semibold tracking-[3px] uppercase text-[#b18e4e] block mb-[5px]">
-              Highlights
-            </small>
+          <div className="w-full lg:w-1/2">
+            <SectionHeader
+              label="Highlights"
+              heading={<>Discover the Finest<br /><span className="text-[#b18e4e]">Features and Finishes</span></>}
+            />
 
-            {/* Heading */}
-            <h2 className="text-[33.6px] font-bold text-[#333] tracking-[-1px] mb-[15px]">
-              Discover the Finest Features and Finishes
-            </h2>
+            {/* Subtitle */}
+            <p className="text-[#555] text-base leading-relaxed mb-8">
+              Every detail crafted for a life of comfort, convenience, and timeless elegance.
+            </p>
 
-            {/* Feature List */}
-            <div className="flex flex-col">
-              {features.map((feature, index) => (
+            {/* Feature Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {HIGHLIGHTS.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-center py-[12px]"
+                  className="flex items-start gap-3 bg-white rounded-xl px-4 py-4 border border-[#f2f2f2] shadow-[0_1px_8px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]"
                 >
-                  <span className="shrink-0 w-[35px]">
+                  <span className="shrink-0 mt-0.5">
                     <Image
                       src="/images/highlight-icon.webp"
                       alt=""
-                      width={35}
-                      height={30}
-                      className="w-[35px] h-[30px]"
+                      width={28}
+                      height={24}
+                      className="w-7 h-6"
                     />
                   </span>
-                  <p className="text-[16px] text-[#333] ml-3">
+                  <p className="text-sm text-[#222] font-medium leading-relaxed">
                     {feature}
                   </p>
                 </div>
@@ -62,6 +57,6 @@ export default function HighlightsSection() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

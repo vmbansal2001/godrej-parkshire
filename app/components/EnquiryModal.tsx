@@ -10,10 +10,7 @@ interface EnquiryModalProps {
   onClose: () => void;
 }
 
-function FieldError({ message }: { message?: string }) {
-  if (!message) return null;
-  return <p className="text-red-500 text-[12px] mt-0.5">{message}</p>;
-}
+import FieldError from "./ui/FieldError";
 
 export default function EnquiryModal({ open, onClose }: EnquiryModalProps) {
   const onSuccess = useCallback(() => {

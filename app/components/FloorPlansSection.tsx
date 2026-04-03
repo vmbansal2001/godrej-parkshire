@@ -1,48 +1,48 @@
 import Image from "next/image";
-
-const floorPlans = [
-  { label: "Master Plan", image: "/images/floor-plans/master-plan.webp" },
-  { label: "2 BHK", image: "/images/floor-plans/floorplan-zoom-1.webp" },
-  { label: "3 BHK", image: "/images/floor-plans/floorplan-zoom-1.webp" },
-];
+import EnquiryButton from "./EnquiryButton";
+import SectionHeader from "./ui/SectionHeader";
+import { FLOOR_PLANS } from "@/app/lib/constants";
 
 export default function FloorPlansSection() {
   return (
-    <section id="floor-plans" className="bg-[#faf8f5]">
-      <div className="max-w-[1320px] mx-auto px-3 py-[70px]">
-        {/* Section Title */}
-        <div className="text-center mb-10">
-          <small className="text-[12px] font-semibold tracking-[3px] uppercase text-[#b18e4e] block mb-[5px]">
-            Floor Plans
-          </small>
-          <h2 className="text-[33.6px] font-bold text-[#333] tracking-[-1px]">
-            Your Vision, Our Floor Plans
-          </h2>
-        </div>
+    <section id="floor-plans" className="bg-[#faf8f4]">
+      <div className="max-w-[1280px] mx-auto px-6 py-24">
+        <SectionHeader
+          label="Floor Plans"
+          heading={<>Your Vision, Our <span className="text-[#b18e4e]">Floor Plans</span></>}
+          centered
+        />
 
         {/* Floor Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4">
-          {floorPlans.map((plan, index) => (
-            <div key={index} className="mb-4">
-              <div className="relative border border-[#b18e4e] rounded-[19px] p-[10px] text-center">
-                {/* Label Badge */}
-                <p className="relative inline-block bg-[#b18e4e] text-white text-[17px] font-medium rounded-[5px] px-[35px] py-[4px] -mt-[24px] mb-[-15px]">
-                  {plan.label}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          {FLOOR_PLANS.map((plan, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-2xl border border-[#f0f0f0] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
+            >
+              {/* Floor Plan Image */}
+              <div className="p-4 pb-0">
+                <div className="relative overflow-hidden rounded-xl bg-[#f8f8f8] aspect-[4/3] flex items-center justify-center">
+                  <Image
+                    src={plan.image}
+                    alt={plan.label}
+                    width={900}
+                    height={643}
+                    className={`w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105 ${index > 0 ? "blur-[3px]" : ""}`}
+                  />
+                </div>
+              </div>
 
-                {/* Floor Plan Image */}
-                <Image
-                  src={plan.image}
-                  alt={plan.label}
-                  width={900}
-                  height={643}
-                  className="w-full h-auto rounded-[30px] object-cover"
+              {/* Card Footer */}
+              <div className="p-4 flex items-center justify-between">
+                <div>
+                  <h4 className="text-lg font-bold text-[#222]">{plan.label}</h4>
+                  <p className="text-xs text-[#888]">Godrej Parkshire</p>
+                </div>
+                <EnquiryButton
+                  label="View Plan"
+                  className="bg-[#b18e4e] text-white text-sm font-semibold rounded-full px-5 py-2.5 hover:bg-[#9a7a3e] transition-all duration-300 cursor-pointer"
                 />
-
-                {/* View Plan Button */}
-                <h4 className="text-[20px] font-semibold text-[#333] text-center bg-white border border-[#b18e4e] rounded-[8px] px-[30px] py-[8px] inline-block mt-2 mb-2 cursor-pointer hover:bg-[#b18e4e] hover:text-white transition-all duration-300">
-                  View Plan
-                </h4>
               </div>
             </div>
           ))}

@@ -2,15 +2,7 @@
 
 import Image from "next/image";
 import { useState, useCallback } from "react";
-
-const galleryImages = [
-  { src: "/images/gallery/gallery-min-1.webp", alt: "Gallery 1" },
-  { src: "/images/gallery/gallery-min-2.webp", alt: "Gallery 2" },
-  { src: "/images/gallery/gallery-min-3.webp", alt: "Gallery 3" },
-  { src: "/images/gallery/gallery-min-4.webp", alt: "Gallery 4" },
-  { src: "/images/gallery/gallery-min-5.webp", alt: "Gallery 5" },
-  { src: "/images/gallery/gallery-min-6.webp", alt: "Gallery 6" },
-];
+import { GALLERY_IMAGES } from "@/app/lib/constants";
 
 export default function GallerySection() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -20,13 +12,13 @@ export default function GallerySection() {
 
   const goToPrev = useCallback(() => {
     setLightboxIndex((prev) =>
-      prev === null ? null : (prev - 1 + galleryImages.length) % galleryImages.length
+      prev === null ? null : (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
     );
   }, []);
 
   const goToNext = useCallback(() => {
     setLightboxIndex((prev) =>
-      prev === null ? null : (prev + 1) % galleryImages.length
+      prev === null ? null : (prev + 1) % GALLERY_IMAGES.length
     );
   }, []);
 
@@ -46,7 +38,7 @@ export default function GallerySection() {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {galleryImages.map((image, index) => (
+            {GALLERY_IMAGES.map((image, index) => (
               <button
                 key={index}
                 onClick={() => openLightbox(index)}
@@ -98,8 +90,8 @@ export default function GallerySection() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={galleryImages[lightboxIndex].src}
-              alt={galleryImages[lightboxIndex].alt}
+              src={GALLERY_IMAGES[lightboxIndex].src}
+              alt={GALLERY_IMAGES[lightboxIndex].alt}
               width={1200}
               height={800}
               className="max-w-full max-h-[85vh] object-contain rounded-lg"
