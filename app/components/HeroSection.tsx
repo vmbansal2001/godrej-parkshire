@@ -56,9 +56,9 @@ export default function HeroSection() {
             </div>
 
             {/* Main Heading */}
-            <h2 className="text-[28px] md:text-[48px] font-bold text-white mb-2 uppercase tracking-[1px] leading-tight">
+            <h1 className="text-[28px] md:text-[48px] font-bold text-white mb-2 uppercase tracking-[1px] leading-tight">
               Godrej <span className="text-[#d4b87a]">Parkshire</span>
-            </h2>
+            </h1>
 
             {/* Tagline */}
             <p className="text-white/70 text-sm md:text-lg mb-4 md:mb-6">Where luxury meets connectivity</p>

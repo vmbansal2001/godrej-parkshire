@@ -1,0 +1,21 @@
+{
+  "name": "Godrej Parkshire - Premium Apartments at Hoskote, East Bangalore",
+  "short_name": "Godrej Parkshire",
+  "description": "Premium 2 & 3 BHK apartments at Hoskote, East Bangalore by Godrej Properties. Starting at ₹1.20 Cr.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b18e4e",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

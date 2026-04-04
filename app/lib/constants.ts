@@ -54,12 +54,12 @@ export const LOCATION_ADVANTAGES = [
 ] as const;
 
 export const GALLERY_IMAGES = [
-  { src: "/images/gallery/gallery-min-1.webp", alt: "Gallery 1" },
-  { src: "/images/gallery/gallery-min-2.webp", alt: "Gallery 2" },
-  { src: "/images/gallery/gallery-min-3.webp", alt: "Gallery 3" },
-  { src: "/images/gallery/gallery-min-4.webp", alt: "Gallery 4" },
-  { src: "/images/gallery/gallery-min-5.webp", alt: "Gallery 5" },
-  { src: "/images/gallery/gallery-min-6.webp", alt: "Gallery 6" },
+  { src: "/images/gallery/gallery-min-1.webp", alt: "Godrej Parkshire aerial view of township at Hoskote" },
+  { src: "/images/gallery/gallery-min-2.webp", alt: "Godrej Parkshire clubhouse and amenities area" },
+  { src: "/images/gallery/gallery-min-3.webp", alt: "Godrej Parkshire landscaped gardens and green spaces" },
+  { src: "/images/gallery/gallery-min-4.webp", alt: "Godrej Parkshire residential tower exterior" },
+  { src: "/images/gallery/gallery-min-5.webp", alt: "Godrej Parkshire swimming pool and recreation area" },
+  { src: "/images/gallery/gallery-min-6.webp", alt: "Godrej Parkshire entrance and driveway" },
 ] as const;
 
 export const RERA = {

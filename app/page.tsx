@@ -15,16 +15,18 @@ export default function Home() {
   return (
     <>
       <Header />
-      <HeroSection />
-      <BannerStrip />
-      <OverviewSection />
-      <HighlightsSection />
-      <PriceSection />
-      <AmenitiesSection />
-      <FloorPlansSection />
-      <GallerySection />
-      <LocationSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <BannerStrip />
+        <OverviewSection />
+        <HighlightsSection />
+        <PriceSection />
+        <AmenitiesSection />
+        <FloorPlansSection />
+        <GallerySection />
+        <LocationSection />
+        <ContactSection />
+      </main>
       <SiteFooter />
     </>
   );
