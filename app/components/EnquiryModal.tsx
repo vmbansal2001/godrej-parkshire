@@ -36,13 +36,12 @@ export default function EnquiryModal({ open, onClose }: EnquiryModalProps) {
     >
       <div className="flex flex-col md:flex-row">
         {/* Left Panel - Property Image */}
-        <div className="hidden lg:block shrink-0 bg-[#0c1b2e]">
+        <div className="hidden lg:block relative bg-white" style={{ flexBasis: "55%" }}>
           <Image
             src="/images/Godrej-Hoskote-popup.webp"
-            alt="Godrej Parkshire - 2 & 3 BHK Apartments starting at ₹1.17 Cr"
-            width={520}
-            height={520}
-            className="w-full h-full object-contain"
+            alt="Godrej Parkshire - 2 & 3 BHK Apartments starting at ₹1.20 Cr"
+            fill
+            className="object-contain object-left-top"
           />
         </div>
 

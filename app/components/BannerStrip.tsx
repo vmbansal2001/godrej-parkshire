@@ -3,22 +3,12 @@ import Image from "next/image";
 export default function BannerStrip() {
   return (
     <div className="w-full">
-      {/* Desktop Banner */}
       <Image
-        src="/images/banner-strip-desktop.webp"
-        alt="Godrej Parkshire - Find Your Perfect Stay"
+        src="/images/banner-strip-v2.png"
+        alt="Godrej Parkshire - 2 & 3 BHK Apartments Starting at ₹1.20 Cr"
         width={1920}
         height={400}
-        className="w-full h-auto hidden md:block"
-        quality={90}
-      />
-      {/* Mobile Banner */}
-      <Image
-        src="/images/banner-strip-mobile.webp"
-        alt="Godrej Parkshire - Find Your Perfect Stay"
-        width={500}
-        height={700}
-        className="w-full h-auto block md:hidden"
+        className="w-full h-auto"
         quality={90}
       />
     </div>

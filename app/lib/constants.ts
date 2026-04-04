@@ -41,7 +41,7 @@ export const HIGHLIGHTS = [
   "Approx. 1,400 apartments across a thoughtfully planned 14-acre township",
   "Designed for natural light, ventilation and sustainable living",
   "Prime East Bangalore location with strong connectivity to IT hubs",
-  "RERA registration in progress / will be registered soon",
+  "RERA Registered Project — Approved by Karnataka RERA",
   "World class Amenities",
 ] as const;
 
